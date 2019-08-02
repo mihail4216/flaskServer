@@ -40,7 +40,7 @@ def wizl_test():
 
 if __name__ == '__main__':
     context = ('server.crt', 'server.key')
-    app.run(debug=True, port=33507)
+    app.run(debug=False, port=33507)
     # flask run -h 192.168.1.65  # lauch local server
     # app.run(host='0.0.0.0', port=443, debug=False, ssl_context=context)
     # app.run()
