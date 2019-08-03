@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT app:viber_flask
+web: gunicorn --bind 0.0.0.0:$PORT app:app
