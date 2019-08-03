@@ -38,8 +38,8 @@ def wizl_test():
     # return Response(status=200)
 
 
-form_auth = render_template('login_form.html', name=None)
-send_message_page = render_template('login_form.html', name=None)
+# form_auth = render_template('login_form.html', template_name_or_list="None")
+# send_message_page = render_template('send_form.html', template_name_or_list="None")
 
 
 def send_message_in_viber():
@@ -49,10 +49,10 @@ def send_message_in_viber():
 @app.route('/admin', methods=['POST', 'GET'])
 def admin():
     if request.method == "GET":
-        return send_message_page
+        return render_template('send_form.html', name="None")
+
     elif request.method == "POST":
         return send_message_in_viber()
-    pass
 
 
 if __name__ == '__main__':
