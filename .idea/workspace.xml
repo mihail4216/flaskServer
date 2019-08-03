@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae402bce-b4fd-4745-8039-b4d53844e3e2" name="Default Changelist" comment="" />
+    <list default="true" id="ae402bce-b4fd-4745-8039-b4d53844e3e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/login_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/send_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viber.py" beforeDir="false" afterPath="$PROJECT_DIR$/viber.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +19,7 @@
       <list>
         <option value="Flask Main" />
         <option value="Python Script" />
+        <option value="HTML4 File" />
       </list>
     </option>
   </component>
@@ -25,6 +32,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML4 File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -68,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564678819351</updated>
-      <workItem from="1564678828104" duration="26115000" />
+      <workItem from="1564678828104" duration="29346000" />
     </task>
     <servers />
   </component>

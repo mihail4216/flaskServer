@@ -9,7 +9,7 @@ bot_configuration = BotConfiguration(
 
 viber = Api(bot_configuration)
 # viber.send_messages(viber.get_online([1]),TextMessage(text="thanks for subscribing!"))
-# print(viber.get_account_info())
-# viber.set_webhook("https://wizl.me/")
+print(viber.get_account_info())
+viber.set_webhook("https://blooming-dusk-83109.herokuapp.com/")
 
 

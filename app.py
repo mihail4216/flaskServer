@@ -1,6 +1,6 @@
 from venv import logger
 
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template
 from viberbot.api.messages import TextMessage
 from viberbot.api.viber_requests import ViberMessageRequest, ViberSubscribedRequest, ViberFailedRequest
 
@@ -36,6 +36,23 @@ def wizl_test():
 
     # return 'Hello World!'
     # return Response(status=200)
+
+
+form_auth = render_template('login_form.html', name=None)
+send_message_page = render_template('login_form.html', name=None)
+
+
+def send_message_in_viber():
+    return viber.get_account_info()
+
+
+@app.route('/wizl_test', methods=['POST', 'GET'])
+def admin():
+    if request.method == "GET":
+        return send_message_page
+    elif request.method == "POST":
+        return send_message_in_viber()
+    pass
 
 
 if __name__ == '__main__':
