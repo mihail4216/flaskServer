@@ -46,7 +46,7 @@ def send_message_in_viber():
     return viber.get_account_info()
 
 
-@app.route('/wizl_test', methods=['POST', 'GET'])
+@app.route('/admin', methods=['POST', 'GET'])
 def admin():
     if request.method == "GET":
         return send_message_page
