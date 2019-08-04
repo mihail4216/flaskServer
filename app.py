@@ -1,12 +1,19 @@
 from venv import logger
 
 from flask import Flask, request, Response, render_template
+from flask_migrate import Migrate
 from viberbot.api.messages import TextMessage
 from viberbot.api.viber_requests import ViberMessageRequest, ViberSubscribedRequest, ViberFailedRequest
+from flask_sqlalchemy import SQLAlchemy
 
+from config import Config
 from viber import viber
 
 app = Flask(__name__)
+app.config.from_object(Config())
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+from models import TestUser
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -25,6 +32,8 @@ def wizl_test():
         viber.send_messages(viber_request.sender.id, [
             message
         ])
+        db.session.add(TestUser(viber_user_id=viber_request.sender.id))
+        db.session.commit()
     elif isinstance(viber_request, ViberSubscribedRequest):
         viber.send_messages(viber_request.get_user.id, [
             TextMessage(text="thanks for subscribing!")
@@ -43,7 +52,9 @@ def wizl_test():
 
 
 def send_message_in_viber():
-    return viber.get_account_info()
+    # return request.get_data()
+    return viber
+    # return viber.parse_request(request.get_data()).user_id
 
 
 @app.route('/admin', methods=['POST', 'GET'])
