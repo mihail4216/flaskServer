@@ -34,7 +34,7 @@ def wizl_test():
             message
         ])
         # user = db.execute(f"select * from usertest where viber_user_id='{viber_request.sender.id}'")
-        user = db.session.query_property(TestUser).filter_by(viber_user_id=viber_request.sender.id)
+        user = db.session.query(TestUser).filter_by(viber_user_id=viber_request.sender.id)
         if user is None:
             db.session.add(TestUser(viber_request.sender.id))
             db.session.commit()
