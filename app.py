@@ -1,6 +1,7 @@
 from venv import logger
 
 from flask import Flask, request, Response, render_template
+from flask_heroku import Heroku
 from flask_migrate import Migrate
 from viberbot.api.messages import TextMessage
 from viberbot.api.viber_requests import ViberMessageRequest, ViberSubscribedRequest, ViberFailedRequest
@@ -10,9 +11,9 @@ from config import Config
 from viber import viber
 
 app = Flask(__name__)
-app.config.from_object(Config())
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+heroku = Heroku(app)
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 from models import TestUser
 
 
@@ -32,7 +33,9 @@ def wizl_test():
         viber.send_messages(viber_request.sender.id, [
             message
         ])
-        db.session.add(TestUser(viber_user_id=viber_request.sender.id))
+        # user = db.execute(f"select * from usertest where viber_user_id='{viber_request.sender.id}'")
+        # if user is None:
+        db.session.add(TestUser(viber_request.sender.id))
         db.session.commit()
     elif isinstance(viber_request, ViberSubscribedRequest):
         viber.send_messages(viber_request.get_user.id, [
