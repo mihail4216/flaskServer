@@ -9,5 +9,5 @@ class TestUser(db.Model):
     def __init__(self, data):
         self.viber_user_id = data
 
-    # def __repr__(self):
-    #     return '<User {}>'.format(self.viber_user_id)
+    def __repr__(self):
+        return '<User {}>'.format(self.viber_user_id)
