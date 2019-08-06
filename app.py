@@ -33,10 +33,10 @@ def wizl_test():
         viber.send_messages(viber_request.sender.id, [
             message
         ])
-        # user = db.execute(f"select * from usertest where viber_user_id='{viber_request.sender.id}'")
-        # if user is None:
-        db.session.add(TestUser(viber_request.sender.id))
-        db.session.commit()
+        user = db.execute(f"select * from usertest where viber_user_id='{viber_request.sender.id}'")
+        if user is None:
+            db.session.add(TestUser(viber_request.sender.id))
+            db.session.commit()
     elif isinstance(viber_request, ViberSubscribedRequest):
         viber.send_messages(viber_request.get_user.id, [
             TextMessage(text="thanks for subscribing!")
