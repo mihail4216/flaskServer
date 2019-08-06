@@ -38,7 +38,7 @@ def wizl_test():
         # viber.send_messages(viber_request.sender.id, TextMessage(f"{user}"))
 
         try:
-            viber_request.sender.id == user.viber_user_id
+            viber_request.sender.id == user['viber_user_id']
         except Exception:
             db.session.add(TestUser(viber_request.sender.id))
             db.session.commit()
