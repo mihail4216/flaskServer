@@ -61,11 +61,8 @@ def send_message_in_viber():
     # return request.get_data()
     all_users = db.session.query(TestUser)
     for current_user in all_users:
-        viber.send_messages(current_user.viber_user_id, TextMessage(text="Karbon uspokoisya"))
-
-
-        # viber.send_messages(current_user.viber_user_id, TextMessage(f"{request.form['text']}"))
-    return request.data
+        viber.send_messages(current_user.viber_user_id, TextMessage(text=f"{request.form['text']}"))
+    return f"Sending message {request.form['text']}"
     # return viber.parse_request(request.get_data()).user_id
 
 
