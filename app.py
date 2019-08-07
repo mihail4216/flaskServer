@@ -62,7 +62,7 @@ def send_message_in_viber():
     all_users = db.session.query(TestUser)
     for current_user in all_users:
         viber.send_messages(current_user.viber_user_id, TextMessage(text=f"{request.form['text']}"))
-    return f"Sending message {request.form['text']}"
+    return f"Sending message: {request.form['text']}"
     # return viber.parse_request(request.get_data()).user_id
 
 
@@ -76,7 +76,7 @@ def admin():
 
 
 if __name__ == '__main__':
-    context = ('server.crt', 'server.key')
+    # context = ('server.crt', 'server.key')
     app.run(debug=False, port=33507)
     # flask run -h 192.168.1.65  # lauch local server
     # app.run(host='0.0.0.0', port=443, debug=False, ssl_context=context)
