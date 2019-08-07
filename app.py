@@ -33,9 +33,7 @@ def wizl_test():
         viber.send_messages(viber_request.sender.id, [
             message
         ])
-        # user = db.execute(f"select * from usertest where viber_user_id='{viber_request.sender.id}'")
         user = db.session.query(TestUser).filter_by(viber_user_id=viber_request.sender.id).first()
-        # viber.send_messages(viber_request.sender.id, TextMessage(f"{user}"))
 
         try:
             viber_request.sender.id == user.viber_user_id
@@ -61,7 +59,10 @@ def wizl_test():
 
 def send_message_in_viber():
     # return request.get_data()
-    return viber
+    all_users = db.session.query(TestUser)
+    for current_user in all_users:
+        viber.send_messages(current_user.viber_user_id, TextMessage(f"{request.data['text']}"))
+    return request.data
     # return viber.parse_request(request.get_data()).user_id
 
 
