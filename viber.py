@@ -3,7 +3,7 @@ from viberbot.api.messages import TextMessage
 
 bot_configuration = BotConfiguration(
     name='Wizl',
-    avatar='http://sun9-29.userapi.com/c824201/v824201969/173425/UZNGRozhtic.jpg?ava=1',
+    avatar='http://dashboard.wizl.me/upload/gift_shop_post_cards/IFG6GXHnesHRDVDs94eJXpzTY.jpg',
     auth_token='4a1218ec19e7d382-bc52008d33eea8c2-e819c1e1cd8babcd'
 )
 

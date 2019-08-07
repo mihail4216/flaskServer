@@ -2,12 +2,10 @@ from venv import logger
 
 from flask import Flask, request, Response, render_template
 from flask_heroku import Heroku
-from flask_migrate import Migrate
 from viberbot.api.messages import TextMessage
 from viberbot.api.viber_requests import ViberMessageRequest, ViberSubscribedRequest, ViberFailedRequest
 from flask_sqlalchemy import SQLAlchemy
 
-from config import Config
 from viber import viber
 
 app = Flask(__name__)
@@ -48,13 +46,6 @@ def wizl_test():
         logger.warn("client failed receiving message. failure: {0}".format(viber_request))
 
     return Response(status=200)
-
-    # return 'Hello World!'
-    # return Response(status=200)
-
-
-# form_auth = render_template('login_form.html', template_name_or_list="None")
-# send_message_page = render_template('send_form.html', template_name_or_list="None")
 
 
 def send_message_in_viber():
